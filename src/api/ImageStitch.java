@@ -2,6 +2,7 @@ package api;
 
 import api.Picture;
 import api.Tuple;
+import pa2.MatrixCuts;
 
 import java.awt.*;
 import java.util.ArrayList;

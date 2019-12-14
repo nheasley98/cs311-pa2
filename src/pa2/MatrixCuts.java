@@ -68,7 +68,7 @@ public class MatrixCuts {
 	 * @param M Matrix onto which to apply stitch cut
 	 * @return An array list of tuples, the first of which being in the form <x, -1> with x representing the cost. The following tuples are the row and column of the path of the stitch cut
 	 */
-	static ArrayList<Tuple> stitchCut(int [][] M){
+	public static ArrayList<Tuple> stitchCut(int[][] M){
 		if( M.length == 0 || M[0].length == 0){
 			return null;
 		}
@@ -99,7 +99,7 @@ public class MatrixCuts {
 		
 		data lowest = costs[costs.length-1][costs[costs.length-1].length-1];
 		
-		for(int i = 1; i<M.length; i++){
+		for(int i = 1; i<M[0].length; i++){
 			lowest = lowest.val<=costs[costs.length-1][i].val?lowest:costs[costs.length-1][i];
 		}
 		
