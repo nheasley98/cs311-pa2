@@ -5,9 +5,7 @@ import api.Picture;
 import java.awt.*;
 import java.util.ArrayList;
 
-import api.ImageStitch;
 import pa2.MatrixCuts;
-
 
 /**
  * @author Mark Schmidt-Dannert and Noah Heasley
@@ -66,12 +64,13 @@ public class ImageProcessor {
 			ArrayList<Tuple> tuples = MatrixCuts.widthCut(importance);
 
 			Color[][] newColors = new Color[height][width - 1];
-			for (int i = 0; i < tuples.size(); i++) {
+			for (int i = 1; i < tuples.size(); i++) {
+				Tuple t = tuples.get(i);
 				for (int j = 0; j < width; j++) {
-					if(j < tuples.get(i).getY()) {
-						newColors[i][j] = colors[i][j];
-					} if (j > tuples.get(i).getY()) {
-						newColors[i][j] = colors[i][j - 1];
+					if(j < t.getY()) {
+						newColors[t.getX()][j] = colors[t.getX()][j];
+					} if (j > t.getY()) {
+						newColors[t.getX()][j - 1] = colors[t.getX()][j];
 					}
 				}
 			}
@@ -91,6 +90,10 @@ public class ImageProcessor {
 		return result;
 	}
 	private static int dist(Color x, Color y) {
-		return (int)(Math.pow(x.getRed() - y.getRed(), 2) + Math.pow(x.getGreen() - y.getGreen(), 2) + Math.pow(x.getBlue() - y.getBlue(), 2));
+		return (int) (Math.pow(x.getRed() - y.getRed(), 2) + Math.pow(x.getGreen() - y.getGreen(), 2) + Math.pow(x.getBlue() - y.getBlue(), 2));
+	}
+
+	public static void main(String[] args) {
+		ImageProcessor.reduceWidth(1000, "./pic.jpg").show();
 	}
 }
