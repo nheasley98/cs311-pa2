@@ -19,7 +19,7 @@ public class MatrixCuts {
 	 * @param M The matrix for which to find the min cost width cut
 	 * @return An array list of tuples, the first of which being in the form <x, -1> with x representing the cost. The following tuples are the row and column of the path of the width cut
 	 */
-	static ArrayList<Tuple> widthCut(int[][] M) {
+	public static ArrayList<Tuple> widthCut(int[][] M) {
 		if( M.length == 0 || M[0].length == 0){
 			return null;
 		}

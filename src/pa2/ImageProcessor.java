@@ -1,8 +1,12 @@
-package PA2;
+package pa2;
 
 import api.Tuple;
 import api.Picture;
+import java.awt.*;
+import java.util.ArrayList;
+
 import api.ImageStitch;
+import pa2.MatrixCuts;
 
 
 /**
@@ -16,7 +20,7 @@ public class ImageProcessor {
 	 * class MatrixCuts to compute the width cut and reduce the width.  Otherwise, you will receive zero credit.
 	 *
 	 * @param x
-	 * @param inputImage is the nameof image whose width will be reduced.
+	 * @param inputImage is the name of image file whose width will be reduced.
 	 * @return Picture with width W - param x
 	 */
 
@@ -76,8 +80,8 @@ public class ImageProcessor {
 		}
 
 
-		Picture result = Picture(pic.width() - x, pic.height());
-		//For everyi, remove the pixelM[i, yi] from the image.  Now the width of the image isW−1.
+		Picture result = new Picture(pic.width() - x, pic.height());
+		//For every i, remove the pixelM[i, yi] from the image.  Now the width of the image isW−1.
 		for (int i = 0; i < result.height(); i++) {
 			for (int j = 0; j < result.width(); j++) {
 				result.set(j, i, colors[i][j]);
@@ -87,6 +91,6 @@ public class ImageProcessor {
 		return result;
 	}
 	private static int dist(Color x, Color y) {
-		return Math.pow(x.getRed() - y.getRed(), 2) + Math.pow(x.getGreen() - y.getGreen(), 2) + Math.pow(x.getBlue() - y.getBlue(), 2);
+		return (int)(Math.pow(x.getRed() - y.getRed(), 2) + Math.pow(x.getGreen() - y.getGreen(), 2) + Math.pow(x.getBlue() - y.getBlue(), 2));
 	}
 }
