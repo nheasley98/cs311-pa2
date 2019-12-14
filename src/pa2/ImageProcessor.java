@@ -80,7 +80,7 @@ public class ImageProcessor {
 		//For everyi, remove the pixelM[i, yi] from the image.  Now the width of the image isW−1.
 		for (int i = 0; i < result.height(); i++) {
 			for (int j = 0; j < result.width(); j++) {
-				result.set(j, i, colors[i, j]);
+				result.set(j, i, colors[i][j]);
 			}
 		}
 
