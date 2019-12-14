@@ -92,7 +92,7 @@ public class MatrixCuts {
 					
 				}
 				
-				costs[i][j] = (costs[i][max(j-1,0)].val<(costs[max(i-1, 0)][max(j-1, 0)].val<costs[max(i-1,0)][j].val?costs[max(i-1, 0)][max(j-1, 0)].val:costs[max(i-1,0)][j].val))?(new data(costs[i][max(j-1,0)], costs[i][max(j-1,0)].val + M[i][j], i, j)):((costs[max(i-1, 0)][max(j-1, 0)].val<costs[max(i-1,0)][j].val)?new data(costs[max(i-1, 0)][max(j-1, 0)],costs[max(i-1, 0)][min(j-1, 0)].val + M[i][j], i, j):new data(costs[max(i-1,0)][j], costs[max(i-1,0)][j].val + M[i][j], i, j));
+				costs[i][j] = (costs[i][max(j-1,0)].val<(costs[max(i-1, 0)][max(j-1, 0)].val<costs[max(i-1,0)][j].val?costs[max(i-1, 0)][max(j-1, 0)].val:costs[max(i-1,0)][j].val))?(new data(costs[i][max(j-1,0)], costs[i][max(j-1,0)].val + M[i][j], i, j)):((costs[max(i-1, 0)][max(j-1, 0)].val<costs[max(i-1,0)][j].val)?new data(costs[max(i-1, 0)][max(j-1, 0)],costs[max(i-1, 0)][max(j-1, 0)].val + M[i][j], i, j):new data(costs[max(i-1,0)][j], costs[max(i-1,0)][j].val + M[i][j], i, j));
 				
 				}
 		}
